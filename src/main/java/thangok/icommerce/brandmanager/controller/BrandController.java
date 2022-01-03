@@ -31,7 +31,7 @@ public class BrandController {
     }
 
     @PostMapping("/")
-    public BrandDTO createBrand(final BrandDTO brandDTO) {
+    public BrandDTO createBrand(@RequestBody final BrandDTO brandDTO) {
         return brandService.createBrand(brandDTO);
     }
 }
