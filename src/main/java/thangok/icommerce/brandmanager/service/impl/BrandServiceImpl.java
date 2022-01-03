@@ -48,7 +48,17 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public BrandDTO createBrand(BrandDTO newBrand) {
-        return null;
+        Brand brand = new Brand();
+        brand.setBrandCode(newBrand.getBrandCode());
+        brand.setBrandName(newBrand.getBrandName());
+        brand.setDescription(newBrand.getDescription());
+
+        Brand result = brandRepository.save(brand);
+        return new BrandDTO() {{
+            setBrandCode(result.getBrandCode());
+            setBrandName(result.getBrandName());
+            setDescription(result.getDescription());
+        }};
     }
 
     @Override

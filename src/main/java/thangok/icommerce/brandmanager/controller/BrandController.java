@@ -2,10 +2,7 @@ package thangok.icommerce.brandmanager.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import thangok.icommerce.brandmanager.dto.BrandDTO;
 import thangok.icommerce.brandmanager.service.BrandService;
 
@@ -18,9 +15,14 @@ public class BrandController {
     @Autowired
     BrandService brandService;
 
-    @GetMapping("/list")
+    @GetMapping("/")
     public Page<BrandDTO> getAllBrands() {
         return brandService.getAllBrands();
+    }
+
+    @GetMapping("/{brandCode}")
+    public Optional<BrandDTO> getByCode(@PathVariable("brandCode") String brandCode) {
+        return brandService.getByCode(brandCode);
     }
 
     @GetMapping("/search/{searchText}")
@@ -28,8 +30,8 @@ public class BrandController {
         return brandService.searchBrands(searchText);
     }
 
-    @GetMapping("/{brandCode}")
-    public Optional<BrandDTO> getByCode(@PathVariable("brandCode") String brandCode) {
-        return brandService.getByCode(brandCode);
+    @PostMapping("/")
+    public BrandDTO createBrand(final BrandDTO brandDTO) {
+        return brandService.createBrand(brandDTO);
     }
 }
