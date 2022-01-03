@@ -51,11 +51,11 @@ public class BrandServiceImpl implements BrandService {
     @LogExecutionTime
     @LogIO
     @Override
-    public BrandDTO createBrand(BrandDTO newBrand) {
+    public BrandDTO createBrand(BrandDTO brandDTO) {
         Brand brand = new Brand();
-        brand.setBrandCode(newBrand.getBrandCode());
-        brand.setBrandName(newBrand.getBrandName());
-        brand.setDescription(newBrand.getDescription());
+        brand.setBrandCode(brandDTO.getBrandCode());
+        brand.setBrandName(brandDTO.getBrandName());
+        brand.setDescription(brandDTO.getDescription());
 
         Brand result = brandRepository.save(brand);
         return new BrandDTO() {{
@@ -66,7 +66,7 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public BrandDTO updateBrand(BrandDTO newBrand) {
+    public BrandDTO updateBrand(BrandDTO brandDTO) {
         return null;
     }
 

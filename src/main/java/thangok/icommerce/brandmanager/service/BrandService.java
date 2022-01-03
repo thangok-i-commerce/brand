@@ -13,9 +13,9 @@ public interface BrandService {
 
     Optional<BrandDTO> getByCode(String brandCode);
 
-    BrandDTO createBrand(BrandDTO newBrand);
+    BrandDTO createBrand(BrandDTO brandDTO);
 
-    BrandDTO updateBrand(BrandDTO newBrand);
+    BrandDTO updateBrand(BrandDTO brandDTO);
 
     BrandDTO deleteBrand(String brandCode);
 
