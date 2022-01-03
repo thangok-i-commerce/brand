@@ -9,7 +9,7 @@ public interface BrandService {
 
     Page<BrandDTO> getAllBrands();
 
-    Page<BrandDTO> searchBrand(String searchText);
+    Page<BrandDTO> searchBrands(String searchText);
 
     Optional<BrandDTO> getByCode(String brandCode);
 

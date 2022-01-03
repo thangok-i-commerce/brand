@@ -16,7 +16,7 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public Page<BrandDTO> searchBrand(String searchText) {
+    public Page<BrandDTO> searchBrands(String searchText) {
         return null;
     }
 
