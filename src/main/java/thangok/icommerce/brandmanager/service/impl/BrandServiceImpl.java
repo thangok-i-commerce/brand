@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
+import thangok.icommerce.brandmanager.aop.executiontime.LogExecutionTime;
+import thangok.icommerce.brandmanager.aop.io.LogIO;
 import thangok.icommerce.brandmanager.dto.BrandDTO;
 import thangok.icommerce.brandmanager.entity.Brand;
 import thangok.icommerce.brandmanager.repository.BrandRepository;
@@ -46,6 +48,8 @@ public class BrandServiceImpl implements BrandService {
         return Optional.empty();
     }
 
+    @LogExecutionTime
+    @LogIO
     @Override
     public BrandDTO createBrand(BrandDTO newBrand) {
         Brand brand = new Brand();
