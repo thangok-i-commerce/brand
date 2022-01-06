@@ -25,7 +25,7 @@ public class BrandServiceImpl implements BrandService {
     public Page<BrandDTO> getAllBrands() {
         List<Brand> brandList = brandRepository.findAll();
         if (brandList.isEmpty()) {
-            return null;
+            return Page.empty();
         }
 
         List<BrandDTO> result = new ArrayList<>();
