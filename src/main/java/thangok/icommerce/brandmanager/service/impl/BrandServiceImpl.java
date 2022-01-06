@@ -44,8 +44,20 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
+    @LogExecutionTime
+    @LogIO
     public Optional<BrandDTO> getByCode(String brandCode) {
-        return Optional.empty();
+        Optional<Brand> brand = brandRepository.findByBrandCode(brandCode);
+        if (!brand.isPresent()) {
+            return Optional.empty();
+        }
+
+        Brand result = brand.get();
+        return Optional.of(new BrandDTO() {{
+            setBrandCode(result.getBrandCode());
+            setBrandName(result.getBrandName());
+            setDescription(result.getDescription());
+        }});
     }
 
     @LogExecutionTime
